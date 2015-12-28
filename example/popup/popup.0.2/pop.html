@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出来demo</title>
+	<script type="text/javascript" src="../../../jquery.min.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
+	<style type="text/css">
+	.popup {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  z-index: 990;
+	  display: none;
+	  padding: 10px;
+	  background: rgba(0, 0, 0, 0.2);
+	}
+	.popup:after {
+	  display: table;
+	  clear: both;
+	  content: " ";
+	}
+	.popup .close{
+	  position: absolute;
+	  top: 10px;
+	  right: 10px;
+	  display: block;
+	  height: 20px;
+	  width: 20px;
+	  color: #fff;
+	  font-size: 18px;
+	  line-height: 20px;
+	  text-align: center;
+	}
+	.popup > .inner,
+	.popup > .wrap {
+	  position: relative;
+	  float: left;
+	  width: 100%;
+	  height: 100%;
+	  background: #fff;
+	}
+	.popup .hd {
+	  cursor: default ;
+	}
+	.popup .bd img{
+		display: block;
+		width: 100%;
+	}
+	.btn-xiane {
+	  position: absolute;
+	  top: 207px;
+	  left: 250px;
+	  height: 38px;
+	  line-height: 38px;
+	  border-radius: 4px;
+	  background: #fbd196;
+	  padding: 0 32px;
+	  color: #902718;
+	  font-size: 18px;
+	  text-decoration: none;
+	}
+</style>
+</head>
+<body>
+	<!--打开页面弹窗-->
+	<div class="popup popup-after11 " id="pop-11after" style="width: 660px">
+	    <div class="inner">
+	        <div class="hd">
+	            <i class="close">X</i>
+	        </div>
+	        <div class="bd">
+	            <img class="vipclass" src="http://jiuye.jikexueyuan.com/Current/home/images/pop-11after.png" alt=""/>
+	            <a class="btn-xiane" href="http://meiqia.com/chat/7594/15800" target="_blank" >限额50名 &gt</a>
+
+	        </div>
+	    </div>
+	</div>
+	<!--打开页面弹窗end-->
+
+	<script>
+	    $(function () {
+	        function pop11after(){
+	            $('#after11-triauto').popupshow({
+	                popupId: 'pop-11after',
+	                callback: function () {
+	                    var status = $('#pop-11after').attr('popup'),
+	                    timer;
+	                    setTimeout(pop11after,4000);
+	                }
+	            });
+
+	        }
+	        setTimeout(pop11after,2000);
+	    })
+	</script>
+
+</body>
+</html>

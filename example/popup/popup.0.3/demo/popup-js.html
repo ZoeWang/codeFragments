@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html style="width: 100%">
+	<head>
+		<meta charset="utf-8">
+		<title>popup-js demo</title>
+		<link rel="stylesheet" href="css/demo.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../jquery.popup.js"></script>
+		<script>
+		$(function() {
+			$('#btn1').click(function() {
+				$.popup({
+					popup: 'popup1',
+					url: 'popup/popup1.html',
+                    zindex: 1211,
+                    width: 700,
+                    mask: 'mask',
+					fn: function(event) {
+
+                        console.log(event)
+						$('#btn3').click(function() {
+							$.popup({
+								popup: 'popup3',
+								url: 'popup/popup3.html',
+                                mask: 'mask',
+                                height: 600
+							})
+						})
+					}
+				});
+			});
+			var b = $('#btn2').click(function() {
+				$.popup({
+					popup: 'popup2',
+					timer: 20,
+					noscroll: true,
+					output: '.timer',
+					zindex: 1001,
+					width: 800,
+					height: 400,
+					mask: 'mask',
+					fn: function(method) {
+					    console.log(method);
+					    $('#popup2').find('a').click(function() {
+                            method.setCss({
+                                popup: $('#popup2'),
+                                mask: $('#mask'),
+                                width: 900,
+                                height: 500
+                            });
+                            method.position('popup2', 'fixed');
+					    });
+					}
+				});
+			});
+		})
+		</script>
+	</head>
+	<body style="">
+		<div style="margin-top: 100px;"></div>
+		<a href="javascript:;" id="btn1">外部弹层</a>
+		<a href="javascript:;" id="btn2">自有弹层</a>
+		<div class="popup" id="popup2" style="">
+			<div class="wrap">
+				<header>
+					<h2>popup2</h2>
+					<div class="close">X</div>
+				</header>
+				<div class="bd">
+				    <br /><br />
+				    <div class="timer"></div>
+				    <br /><br />
+				    <a href="javascript:;">调整窗口大小并重新定位</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

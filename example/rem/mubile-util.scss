@@ -1,0 +1,24 @@
+$ppr:640px/16/1rem;
+*{
+	margin:0;
+}
+html{
+	font-size:$ppr*1rem;
+	background-color:#f7f7f7;
+}
+body{
+	width:640px/$ppr;
+	margin:0 auto;
+	line-height:1.4;
+	background:#fff;
+}
+.app{
+	position: relative;
+	display: -webkit-flex;
+	align-items: center;
+	padding: 26px/$ppr 20px/$ppr;
+	border-bottom: 1px solid #cfcfcf;
+	h1{
+		background:red;
+	}
+}

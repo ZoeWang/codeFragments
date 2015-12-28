@@ -1,0 +1,18 @@
+@import "rem";
+.nav-list {
+    height: 40px/$ppr;
+    @include toRem(margin, 10, 15, 10, 15);
+    background:red;
+    li{
+    	float:left;
+    	font-size:16px/$ppr;
+    	padding:5px/$ppr 10px/$ppr;
+    }
+}
+li{
+	list-style-type: none;
+}
+*{
+	padding:0;
+	margin:0;
+}

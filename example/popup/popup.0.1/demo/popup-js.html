@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html style="width: 100%">
+	<head>
+		<meta charset="utf-8">
+		<title>popup-js demo</title>
+		<link rel="stylesheet" href="css/demo.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../jquery.popup.min.js"></script>
+		<script>
+		$(function() {
+			$('#btn1').click(function() {
+				$(this).popup({
+					popup: 'popup1',
+					url: 'popup/popup1.html',
+                    zindex: 1000,
+                    mask: 'mask',
+					fn: function(event) {
+
+                        console.log(event)
+						$('#btn3').click(function() {
+							$(this).popup({
+								popup: 'popup3',
+								url: 'popup/popup3.html',
+                                mask: 'mask',
+							})
+						})
+					}
+				});
+			});
+			var b = $('#btn2').click(function() {
+				$(this).popup({
+					popup: 'popup2',
+					timer: 10,
+					noscroll: true,
+					output: '.timer',
+					zindex: 1000,
+					width: 800,
+					height: 400,
+					mask: 'mask',
+					fn: function(event) {
+					    console.log(event)
+					}
+				});
+			});
+		})
+		</script>
+	</head>
+	<body style="">
+		<div style="margin-top: 100px;"></div>
+		<a href="javascript:;" id="btn1">外部弹层</a>
+		<a href="javascript:;" id="btn2">自有弹层</a>
+		<div class="popup" id="popup2" style="">
+			<div class="wrap">
+				<header>
+					<h2>popup2</h2>
+					<div class="close">X</div>
+				</header>
+				<div class="bd">
+				    <div class="timer"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

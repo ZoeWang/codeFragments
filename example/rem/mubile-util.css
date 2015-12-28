@@ -1,0 +1,23 @@
+* {
+  margin: 0; }
+
+html {
+  font-size: 40px;
+  background-color: #f7f7f7; }
+
+body {
+  width: 16rem;
+  margin: 0 auto;
+  line-height: 1.4;
+  background: #fff; }
+
+.app {
+  position: relative;
+  display: -webkit-flex;
+  align-items: center;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid #cfcfcf; }
+  .app h1 {
+    background: red; }
+
+/*# sourceMappingURL=mubile-util.css.map */
