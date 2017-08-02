@@ -1,0 +1,78 @@
+// style form
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Variable
+// Base
+// Theme
+// 
+
+// *Form Variable
+// ----------------------------------------
+
+@form-item-margin: 10px 0;          // item上下间距
+@item-line-height: 26px;
+@item-label-width: 110px;           // label宽度
+@item-label-color: #666;            // label颜色
+@item-label-em-color: #f00;         // 必填项 * 颜色
+@item-cont-margin-left: 120px;
+@form-inline-margin: 0 10px 15px 0;
+
+// *Form Base
+// ----------------------------------------
+
+/* form */
+.form {
+    .legend {
+        display: block;
+        width: 100%;
+    }
+    .form-group {
+        .clearfix-mixin;
+    }
+    .form-item {
+        &:extend(.form .form-group all);
+        margin: @form-item-margin;
+    }
+    .item-label {
+        float: left;
+        width: @item-label-width;
+        color: @item-label-color;
+        line-height: @item-line-height;
+        text-align: right;
+        
+        em {
+            margin: 0 5px;
+            color: @item-label-em-color;
+            font-family: @font-family-mark;
+        }
+    }
+    .item-cont {
+        margin-left: @item-cont-margin-left;
+        line-height: @item-line-height;
+       
+        >label {
+            margin-right: 20px;
+        }
+        >.txt, >.btn, >.txt-tel,
+        >.txt-section, >.select, >select {
+            margin-right: 10px;
+        }
+        >.radio, >.chk {
+            margin-right: 5px;
+        }
+    }
+}
+
+/* form-inline */
+.form.form-inline .form-item {
+    display: inline-block;
+    margin: @form-inline-margin;
+    vertical-align: top;
+}

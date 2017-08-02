@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多级菜单制作</title>
+	<style type="text/css">
+	<!--
+	body{background:#CFC};
+	ul{
+		font-size:15px;
+		font-family:Arial, Helvetica, sans-serif;
+	}
+	li{
+		padding:1px; margin:0px;
+	}
+	-->
+	</style>
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+<script>
+$(function(){
+	//1.有子菜单：列表项的图标(list-style-image)：plus.gif; 鼠标效果(cursor)：手(pointer);隐藏其子节点：children()+hide()
+	$("li:has(ul)").css({
+		'list-style-image':"url(plus.gif)",
+		'cursor': "pointer"
+	}).children().hide();
+	
+	
+	//2.没有子菜单:列表项的图标：默认值(none); 鼠标效果：默认（default）
+	$("li:not(:has(ul))").css({
+		'list-style-image':"none",
+		'cursor': "default"
+	})
+	
+	//3.click事件：有子菜单；
+	//对当前（孩子）的状态进行（是否是隐藏的）判断   is(":hidden") 
+	//如果隐藏：让孩子出现show()，图标变成减号
+	//如果显示：让孩子隐藏，图标变成加号
+	// $("li:has(ul)").click(function(event){ //event.target
+	// 	if(this==event.target){
+	// 		if($(this).children().is(":hidden")){
+	// 			$(this).children().show();
+	// 			$(this).css("list-style-image","url(minus.gif)");	
+	// 		}else{
+	// 			$(this).children().hide();
+	// 			$(this).css("list-style-image","url(plus.gif)");				
+	// 		}
+	// 	}
+		
+	// })
+	
+	// 4.click事件，点击的当前条目字变红，且有子菜单的打开子菜单，其他菜单收起
+	$("li:has(ul)").click(function(event){ //event.target
+		if(this==event.target){
+			var $this = $(this);
+			if($this.children().is(":hidden")){
+				$this.children().show();
+				$this.css("list-style-image","url(minus.gif)");
+				if($this.hasClass('f')){
+					$this.siblings().children().slideUp()
+				}else{
+					$this.parents('li').siblings().children().slideUp();
+				}
+			}else{
+				$this.children().hide();
+				$this.css("list-style-image","url(plus.gif)");				
+			}
+		}
+		
+	})
+	
+})
+</script>
+
+</head>
+
+<body>
+<ul>
+	<li class="f">第1章 Javascript简介
+		<ul>
+			<li>第1.1节 Javascript的概念</li>
+			<li>第1.2节 使用Javascript控制页面
+				<ul>
+					<li>1.2.1 闭包</li>
+					<li>1.2.2 面向对象</li>
+				</ul>
+			</li>
+			<li>第1.3节 Javascript进化史</li>
+		</ul>
+	</li>
+	<li class="f">第2章 Javascript基础</li>
+	<li class="f">第3章 CSS基础
+		<ul>
+			<li>第3.1节 CSS的概念</li>
+			<li>第3.2节 使用CSS控制页面
+				<ul>
+					<li>3.2.1 行内样式</li>
+					<li>3.2.2 内嵌式</li>
+				</ul>
+			</li>
+			<li>第3.3节 CSS选择器</li>
+		</ul>
+	</li>
+	<li class="f">第4章 CSS进阶
+		<ul>
+			<li>第4.1节 div标记与span标记</li>
+			<li>第4.2节 盒子模型</li>
+			<li>第4.3节 元素的定位
+				<ul>
+					<li>4.3.1 float定位</li>
+					<li>4.3.2 position定位</li>
+					<li>4.3.3 z-index空间位置</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+	
+</body>
+</html>

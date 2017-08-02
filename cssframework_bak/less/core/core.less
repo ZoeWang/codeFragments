@@ -1,0 +1,23 @@
+@import url("variable.less");	// 变量
+@import url("mixins.less");		// 混合
+@import url("reset.less");		// 重置
+@import url("global.less");		// 全局
+.grid-want(@grid-want);
+@import url("font.less");
+.code-want(@code-want);
+.control-want(@control-want);
+.arrow-want(@arrow-want);
+
+// Mixins
+.grid-want(@grid) when (@grid = true) {
+    @import url("grid.less");
+}
+.code-want(@code) when (@code = true) {
+    @import url("code.less");
+}
+.control-want(@control) when (@control = true) {
+    @import url("control.less");
+}
+.arrow-want(@arrow) when (@arrow = true) {
+    @import url("arrow.less");
+}
